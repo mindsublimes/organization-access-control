@@ -1,0 +1,28 @@
+<h1>Groups</h1>
+<%= link_to 'New Group', new_group_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Min Age</th>
+      <th>Max Age</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= link_to group.name, group_path(group) %></td>
+        <td><%= group.min_age %></td>
+        <td><%= group.max_age %></td>
+        <td>
+          <% if group.users.include?(current_user) %>
+            <%= button_to 'Leave', leave_group_path(group), method: :delete %>
+          <% else %>
+            <%= button_to 'Join', join_group_path(group), method: :post %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

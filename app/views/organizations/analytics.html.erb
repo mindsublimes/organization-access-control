@@ -1,0 +1,49 @@
+<h1>Analytics for <%= @organization.name %></h1>
+
+<p><strong>Current Member Count:</strong> <%= @member_count %></p>
+
+<h2>Recent Members</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Joined At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recent_members.each do |membership| %>
+      <tr>
+        <td><%= membership.user.email %></td>
+        <td><%= membership.role %></td>
+        <td><%= membership.created_at.strftime('%Y-%m-%d') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Member Growth (Last 7 Days)</h2>
+<div style="max-width: 400px;">
+  <svg width="100%" height="150">
+    <% max_count = @member_growth.map { |d, c| c }.max || 1 %>
+    <% @member_growth.each_with_index do |(date, count), i| %>
+      <% x = i * 50 + 30 %>
+      <% y = 120 - (count.to_f / max_count * 100) %>
+      <circle cx="<%= x %>" cy="<%= y %>" r="6" fill="#007bff" />
+      <text x="<%= x %>" y="140" font-size="12" text-anchor="middle"><%= date.strftime('%a') %></text>
+      <text x="<%= x %>" y="<%= y - 10 %>" font-size="12" text-anchor="middle"><%= count %></text>
+      <% if i > 0 %>
+        <% prev_x = (i-1) * 50 + 30 %>
+        <% prev_y = 120 - (@member_growth[i-1][1].to_f / max_count * 100) %>
+        <line x1="<%= prev_x %>" y1="<%= prev_y %>" x2="<%= x %>" y2="<%= y %>" stroke="#007bff" stroke-width="2" />
+      <% end %>
+    <% end %>
+  </svg>
+</div>
+
+<p class="mb-2">
+  <%= link_to 'Download Members CSV', export_members_organization_path(@organization), class: 'button' %>
+</p>
+<p>
+  <%= link_to 'Back to Organization', organization_path(@organization) %>
+</p> 

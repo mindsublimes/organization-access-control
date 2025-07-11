@@ -1,0 +1,8 @@
+<h1>Posts in <%= @group.name %></h1>
+<%= link_to 'New Post', new_group_post_path(@group) %>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, group_post_path(@group, post) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Back to Group', group_path(@group) %>

@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<p>Min Age: <%= @post.min_age %></p>
+<p>Max Age: <%= @post.max_age %></p>
+<%= link_to 'Edit', edit_group_post_path(@group, @post) %> |
+<%= link_to 'Back to Posts', group_posts_path(@group) %> |
+<%= link_to 'Back to Group', group_path(@group) %>

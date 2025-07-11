@@ -1,0 +1,152 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* Reset some default styles */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table, th, td, form, input, select, textarea, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  padding: 40px 0 40px 0;
+}
+
+nav {
+  background: #343a40;
+  padding: 1em 2em;
+  margin-bottom: 2em;
+  display: flex;
+  gap: 1em;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+nav a:hover {
+  background: #495057;
+}
+
+h1, h2 {
+  margin-bottom: 1em;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2em;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+th, td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid #e9ecef;
+  text-align: left;
+}
+th {
+  background: #f1f3f5;
+  font-weight: 600;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Forms */
+form {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  margin-bottom: 2em;
+  max-width: 500px;
+}
+.field {
+  margin-bottom: 1.5em;
+}
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1em;
+  background: #f8f9fa;
+  margin-bottom: 0.5em;
+  transition: border 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #495057;
+  outline: none;
+}
+.actions {
+  text-align: right;
+}
+
+button, input[type="submit"], .button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+}
+button:hover, input[type="submit"]:hover, .button:hover {
+  background: #0056b3;
+}
+
+/* Flash messages */
+.notice {
+  background: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+  padding: 1em;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+.alert {
+  background: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  padding: 1em;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+
+ul {
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Utility */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2em; }
+.mb-2 { margin-bottom: 2em; }
+.mx-auto { margin-left: auto; margin-right: auto; }

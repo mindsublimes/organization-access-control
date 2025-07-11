@@ -1,0 +1,21 @@
+<h1><%= @group.name %></h1>
+<p>Min Age: <%= @group.min_age %></p>
+<p>Max Age: <%= @group.max_age %></p>
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+
+<h2>Members</h2>
+<ul>
+  <% @members.each do |membership| %>
+    <li><%= membership.user.email %> (<%= membership.role %>)</li>
+  <% end %>
+</ul>
+<%= link_to 'Manage Memberships', group_group_memberships_path(@group) %>
+
+<h2>Posts</h2>
+<%= link_to 'New Post', new_group_post_path(@group) %>
+<ul>
+  <% @group.posts.where('(min_age IS NULL OR min_age <= ?) AND (max_age IS NULL OR max_age >= ?)', current_user.age, current_user.age).each do |post| %>
+    <li><%= link_to post.title, group_post_path(@group, post) %></li>
+  <% end %>
+</ul>
