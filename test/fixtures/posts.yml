@@ -3,10 +3,10 @@
 one:
   group: one
   user: one
-  title: MyString
-  body: MyText
-  min_age: 1
-  max_age: 1
+  title: Test Post
+  body: This is a test post.
+  min_age: 10
+  max_age: 30
 
 two:
   group: two

@@ -125,6 +125,13 @@ This is a modern Ruby on Rails application providing robust authentication, orga
 
 ---
 
+## Testing
+ Run all tests with:
+  rails test
+
+----
+-
+
 ## Extending the System
 - Add more analytics (activity logs, advanced charts, PDF exports)
 - Implement advanced parental consent (email approval workflow)
